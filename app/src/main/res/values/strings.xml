@@ -1,6 +1,14 @@
 <resources>
-    <string name="app_name">FootballApps</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">Football Apps</string>
+    <string name="title_matches">Matches</string>
+    <string name="title_teams">Teams</string>
+    <string name="title_favorites">Favorites</string>
+    <array name="league">
+        <item>English Premier League</item>
+        <item>English League Championship</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+        <item>French Ligue 1</item>
+        <item>Spanish La Liga</item>
+    </array>
 </resources>

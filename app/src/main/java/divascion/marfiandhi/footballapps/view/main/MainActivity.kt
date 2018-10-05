@@ -1,24 +1,23 @@
-package divascion.marfiandhi.footballapps
+package divascion.marfiandhi.footballapps.view.main
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import divascion.marfiandhi.footballapps.R
+import divascion.marfiandhi.footballapps.R.id.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
-                message.setText(R.string.title_home)
+            navigation_matches -> {
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
+            navigation_teams -> {
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_notifications -> {
-                message.setText(R.string.title_notifications)
+            navigation_favorites -> {
                 return@OnNavigationItemSelectedListener true
             }
         }
