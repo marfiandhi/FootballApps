@@ -2,9 +2,13 @@
 <resources>
     <color name="colorPrimary">#191f43</color>
     <color name="colorPrimaryDark">#141733</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#940000</color>
+    <color name="maroon">#630000</color>
     <color name="white">#fff</color>
     <color name="lightGrey">#e2e2e2</color>
+    <color name="darkGrey">#686868</color>
+    <color name="ultraDarkGrey">#393939</color>
     <color name="grey">#aaa</color>
     <color name="darkBlue">#0e1a87</color>
+    <color name="black">#000</color>
 </resources>

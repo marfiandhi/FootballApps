@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="8dp"
+    android:paddingHorizontal="44dp"
+    android:layout_marginTop="4dp"
+    android:paddingBottom="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_black"
+    tools:targetApi="o">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textAlignment="center"
+        android:layout_marginBottom="8dp"
+        android:textSize="12sp"
+        android:text="@string/example_date"
+        android:textColor="@color/white"/>
+    <TextView
+        android:id="@+id/time"
+        android:textAlignment="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@id/date"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:text="@string/time"/>
+
+    <TextView
+        android:id="@+id/vs"
+        android:layout_below="@id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:textColor="@color/lightGrey"
+        android:layout_centerHorizontal="true"
+        android:text="@string/vs"/>
+
+    <TextView
+        android:id="@+id/scoreTeamA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time"
+        android:layout_toStartOf="@id/vs"
+        android:textStyle="bold"
+        android:textColor="@color/lightGrey"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="4dp"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/teamA"
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:layout_below="@id/time"
+        android:textColor="@color/lightGrey"
+        android:layout_toStartOf="@id/scoreTeamA"
+        android:text="@string/example_home_name"/>
+
+    <TextView
+        android:id="@+id/scoreTeamB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time"
+        android:layout_toEndOf="@id/vs"
+        android:layout_marginHorizontal="4dp"
+        android:textSize="20sp"
+        android:textColor="@color/lightGrey"
+        android:textStyle="bold"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/teamB"
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textAlignment="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/lightGrey"
+        android:layout_below="@id/time"
+        android:layout_toEndOf="@id/scoreTeamB"
+        android:text="@string/example_away_name"/>
+
+</RelativeLayout>

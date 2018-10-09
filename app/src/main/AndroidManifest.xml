@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="divascion.marfiandhi.footballapps">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,13 +13,19 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".view.main.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.main.team.TeamDetailActivity"
+            android:theme="@style/AppTheme.DarkActionBar"/>
+        <activity android:name=".view.main.matches.MatchDetailsActivity"
+            android:theme="@style/AppTheme.DarkActionBar"/>
     </application>
 
 </manifest>

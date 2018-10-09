@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ultraDarkGrey">
+
+    <Spinner
+        android:id="@+id/matches_spinner_last"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/last_swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="4dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_last"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <ProgressBar
+                android:id="@+id/last_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:indeterminateTint="@color/colorAccent"/>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

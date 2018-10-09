@@ -1,51 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightGrey"
-    tools:context="divascion.marfiandhi.footballapps.view.main.MainActivity">
+    android:background="@color/ultraDarkGrey">
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/main_swipe_refresh"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigation">
 
         <FrameLayout
             android:id="@+id/main_frame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/main_recycler"
+            <android.support.design.widget.CoordinatorLayout
+                android:id="@+id/main_context"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            
-            <ProgressBar
-                android:id="@+id/progress_bars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_gravity="center_horizontal"
-                android:indeterminateTint="@color/darkBlue"/>
+                android:layout_height="match_parent">
+
+                <android.support.design.widget.AppBarLayout
+                    android:id="@+id/app_bar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                        app:layout_scrollFlags="scroll|enterAlways" />
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/tab_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        app:tabSelectedTextColor="@color/colorAccent"
+                        android:background="@color/black" />
+
+                </android.support.design.widget.AppBarLayout>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/ultraDarkGrey"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+            </android.support.design.widget.CoordinatorLayout>
 
         </FrameLayout>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
+        android:layout_gravity="bottom"
         android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
         android:layout_marginStart="8dp"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"
-        android:background="@drawable/rounded_white"
+        android:background="@drawable/rounded_black"
         app:menu="@menu/navigation" />
 
-</LinearLayout>
+</RelativeLayout>

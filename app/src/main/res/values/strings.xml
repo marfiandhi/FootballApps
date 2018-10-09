@@ -3,6 +3,7 @@
     <string name="title_matches">Matches</string>
     <string name="title_teams">Teams</string>
     <string name="title_favorites">Favorites</string>
+    <string name="bottom_navigation">divascion.marfiandhi.footballapps.view.BottomNavigationViewBehaviour</string>
     <array name="league">
         <item>English Premier League</item>
         <item>English League Championship</item>
@@ -11,4 +12,29 @@
         <item>French Ligue 1</item>
         <item>Spanish La Liga</item>
     </array>
+    <string name="action_settings">Settings</string>
+    <string name="previous_match">Previous Match</string>
+    <string name="next_match">Next Match</string>
+    <string name="vs">vs</string>
+    <string name="example_home_name">Barcelona</string>
+    <string name="example_away_name">Real Madrid</string>
+    <string name="home_image">Home Image</string>
+    <string name="away_image">Away Image</string>
+    <string name="goals">Goals</string>
+    <string name="shots">Shots</string>
+    <string name="lineups">Lineups</string>
+    <string name="goal_keeper">Goal Keeper</string>
+    <string name="defense">Defense</string>
+    <string name="midfield">Midfield</string>
+    <string name="forward">Forward</string>
+    <string name="substitutes">Substitutes</string>
+    <string name="example_date">Sat, 06 Mar 1998</string>
+    <string name="favorites">favorites</string>
+    <string name="detail_match">Detail Match</string>
+    <string name="time">21:00</string>
+    <string name="player_fanart">Player FanArt</string>
+    <string name="weight_kg">Weight (Kg)</string>
+    <string name="height_m">Height (m)</string>
+    <string name="weight_example">65.78</string>
+    <string name="height_example">1.64</string>
 </resources>
