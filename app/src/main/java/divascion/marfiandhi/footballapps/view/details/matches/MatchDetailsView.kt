@@ -1,4 +1,4 @@
-package divascion.marfiandhi.footballapps.view.main.matches
+package divascion.marfiandhi.footballapps.view.details.matches
 
 import divascion.marfiandhi.footballapps.model.teams.Team
 

@@ -1,10 +1,9 @@
-package divascion.marfiandhi.footballapps.view.main.team
+package divascion.marfiandhi.footballapps.view.details.teams
 
 import android.database.sqlite.SQLiteConstraintException
 import android.graphics.Color
 import android.os.Bundle
 import divascion.marfiandhi.footballapps.R.id.*
-import android.support.design.R.attr.colorAccent
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity

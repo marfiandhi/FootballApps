@@ -8,12 +8,11 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.squareup.picasso.Picasso
-import divascion.marfiandhi.footballapps.R
-import divascion.marfiandhi.footballapps.R.color.white
+import divascion.marfiandhi.footballapps.R.id.team_badge
+import divascion.marfiandhi.footballapps.R.id.team_name
+import divascion.marfiandhi.footballapps.model.teams.Favorite
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
-import divascion.marfiandhi.footballapps.R.id.*
-import divascion.marfiandhi.footballapps.model.teams.Favorite
 
 /**
  * Created by Marfiandhi on 10/6/2018.

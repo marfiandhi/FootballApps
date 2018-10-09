@@ -3,12 +3,10 @@ package divascion.marfiandhi.footballapps.adapter.matches
 import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import divascion.marfiandhi.footballapps.R
-import divascion.marfiandhi.footballapps.R.id.date
 import divascion.marfiandhi.footballapps.model.matches.Schedule
 import kotlinx.android.synthetic.main.matches_list.view.*
 import java.text.SimpleDateFormat

@@ -1,4 +1,4 @@
-package divascion.marfiandhi.footballapps.view.main.matches
+package divascion.marfiandhi.footballapps.view.details.matches
 
 import android.annotation.SuppressLint
 import android.database.sqlite.SQLiteConstraintException
@@ -7,18 +7,14 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import android.widget.ImageView
-import android.widget.PopupMenu
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import divascion.marfiandhi.footballapps.R
 import divascion.marfiandhi.footballapps.R.drawable.ic_action_star
 import divascion.marfiandhi.footballapps.R.drawable.ic_action_star_border
 import divascion.marfiandhi.footballapps.R.id.add_to_favorite
-import divascion.marfiandhi.footballapps.R.id.details_swipe_refresh
 import divascion.marfiandhi.footballapps.database.matches.database
 import divascion.marfiandhi.footballapps.model.ApiRepository
 import divascion.marfiandhi.footballapps.model.matches.Favorite
@@ -26,7 +22,6 @@ import divascion.marfiandhi.footballapps.model.matches.Schedule
 import divascion.marfiandhi.footballapps.model.teams.Team
 import divascion.marfiandhi.footballapps.presenter.matches.MatchDetailsPresenter
 import kotlinx.android.synthetic.main.details_match.*
-import kotlinx.android.synthetic.main.matches_list.view.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert

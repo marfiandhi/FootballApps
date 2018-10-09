@@ -22,9 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.main.team.TeamDetailActivity"
+        <activity android:name=".view.details.teams.TeamDetailActivity"
             android:theme="@style/AppTheme.DarkActionBar"/>
-        <activity android:name=".view.main.matches.MatchDetailsActivity"
+        <activity android:name=".view.details.matches.MatchDetailsActivity"
             android:theme="@style/AppTheme.DarkActionBar"/>
     </application>
 

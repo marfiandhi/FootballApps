@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import divascion.marfiandhi.footballapps.model.ApiRepository
 import divascion.marfiandhi.footballapps.model.TheSportDBApi
 import divascion.marfiandhi.footballapps.model.teams.TeamResponse
-import divascion.marfiandhi.footballapps.view.main.team.TeamDetailView
+import divascion.marfiandhi.footballapps.view.details.teams.TeamDetailView
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 

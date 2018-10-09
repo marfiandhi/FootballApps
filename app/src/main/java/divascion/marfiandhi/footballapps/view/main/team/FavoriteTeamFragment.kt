@@ -13,6 +13,7 @@ import divascion.marfiandhi.footballapps.R
 import divascion.marfiandhi.footballapps.adapter.teams.FavoriteTeamsAdapter
 import divascion.marfiandhi.footballapps.database.teams.database
 import divascion.marfiandhi.footballapps.model.teams.Favorite
+import divascion.marfiandhi.footballapps.view.details.teams.TeamDetailActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select

@@ -21,6 +21,7 @@ import divascion.marfiandhi.footballapps.model.teams.Team
 import divascion.marfiandhi.footballapps.presenter.teams.TeamsPresenter
 import divascion.marfiandhi.footballapps.utils.invisible
 import divascion.marfiandhi.footballapps.utils.visible
+import divascion.marfiandhi.footballapps.view.details.teams.TeamDetailActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.ctx

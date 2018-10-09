@@ -19,6 +19,7 @@ import divascion.marfiandhi.footballapps.model.matches.Schedule
 import divascion.marfiandhi.footballapps.presenter.matches.MatchesPresenter
 import divascion.marfiandhi.footballapps.utils.invisible
 import divascion.marfiandhi.footballapps.utils.visible
+import divascion.marfiandhi.footballapps.view.details.matches.MatchDetailsActivity
 import kotlinx.android.synthetic.main.fragment_prev_matches.*
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.intentFor

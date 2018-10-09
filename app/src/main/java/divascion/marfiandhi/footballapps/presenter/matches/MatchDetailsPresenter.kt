@@ -5,7 +5,7 @@ import divascion.marfiandhi.footballapps.model.ApiRepository
 import divascion.marfiandhi.footballapps.model.TheSportDBApi
 import divascion.marfiandhi.footballapps.model.teams.TeamResponse
 import divascion.marfiandhi.footballapps.utils.CoroutineContextProvider
-import divascion.marfiandhi.footballapps.view.main.matches.MatchDetailsView
+import divascion.marfiandhi.footballapps.view.details.matches.MatchDetailsView
 import org.jetbrains.anko.coroutines.experimental.bg
 import kotlinx.coroutines.experimental.async
 
