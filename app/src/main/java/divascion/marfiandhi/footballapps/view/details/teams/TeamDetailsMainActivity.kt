@@ -43,6 +43,9 @@ class TeamDetailsMainActivity: AppCompatActivity() {
         check = intent.getBooleanExtra("favorite", false)
         setContentView(R.layout.team_details_main)
 
+        setSupportActionBar(toolbar_team)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         if(check) {
             itemFavorite = intent.getParcelableExtra("team")
             teamId = itemFavorite.teamId.toString()
@@ -52,10 +55,6 @@ class TeamDetailsMainActivity: AppCompatActivity() {
             teamId = item.teamId.toString()
             loadContentToolbar(item)
         }
-
-        setSupportActionBar(toolbar_team)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = ""
 
         toolbar_team.setNavigationOnClickListener {
             onBackPressed()
@@ -86,6 +85,7 @@ class TeamDetailsMainActivity: AppCompatActivity() {
     }
 
     private fun loadContentToolbar(data: Team) {
+        supportActionBar?.title = data.teamName.toString()
         Picasso.get().load(data.teamBadge).into(team_logo)
         team_name.text = data.teamName
         team_formed_year.text = data.teamFormedYear
@@ -93,6 +93,7 @@ class TeamDetailsMainActivity: AppCompatActivity() {
     }
 
     private fun loadContentFavoriteToolbar(data: Favorite) {
+        supportActionBar?.title = data.teamName.toString()
         Picasso.get().load(data.teamBadge).into(team_logo)
         team_name.text = data.teamName
         team_formed_year.text = data.teamFormedYear

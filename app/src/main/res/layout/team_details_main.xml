@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:titleEnabled="false"
+            app:titleEnabled="true"
+            app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutExpandedTextStyle"
             app:contentScrim="@color/black"
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed|exitUntilCollapsed" >
 
