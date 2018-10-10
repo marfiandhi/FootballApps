@@ -8,9 +8,8 @@ import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.support.v7.widget.SearchView
+import android.view.*
 import android.widget.*
 import com.google.gson.Gson
 import divascion.marfiandhi.footballapps.R
@@ -31,9 +30,10 @@ import org.jetbrains.anko.support.v4.swipeRefreshLayout
 /**
  * Created by Marfiandhi on 10/6/2018.
  */
-class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
+class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView, SearchView.OnQueryTextListener {
 
     private var teams: MutableList<Team> = mutableListOf()
+    private var searchTeams: MutableList<Team> = ArrayList()
     private lateinit var presenter: TeamsPresenter
     private lateinit var adapter: TeamsAdapter
     private lateinit var spinner: Spinner
@@ -50,6 +50,7 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
         val popupBackground = ColorDrawable(Color.BLACK)
         spinner.setPopupBackgroundDrawable(popupBackground)
         spinner.adapter = spinnerAdapter
+        setHasOptionsMenu(true)
 
         adapter = TeamsAdapter(teams) {
             ctx.startActivity<TeamDetailsMainActivity>(
@@ -130,7 +131,37 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
         swipeRefresh.isRefreshing = false
         teams.clear()
         teams.addAll(data)
+        searchTeams.addAll(teams)
         adapter.notifyDataSetChanged()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.search, menu)
+        val searchItem = menu?.findItem(R.id.menu_search)
+        val searchView = searchItem?.actionView as SearchView
+        searchView.setOnQueryTextListener(this)
+        searchView.queryHint = "Search..."
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        teams.clear()
+        if(newText!!.isNotEmpty()) {
+            val search = newText.toLowerCase()
+            searchTeams.forEach{
+                if(it.teamName!!.toLowerCase().contains(search)) {
+                    teams.add(it)
+                }
+            }
+        } else {
+            teams.addAll(searchTeams)
+        }
+        adapter.notifyDataSetChanged()
+        return true
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return true
+    }
 }

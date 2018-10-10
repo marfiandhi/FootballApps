@@ -20,7 +20,7 @@
         android:layout_marginBottom="8dp"
         android:textSize="12sp"
         android:text="@string/example_date"
-        android:textColor="@color/white"/>
+        android:textColor="@color/red"/>
     <TextView
         android:id="@+id/time"
         android:textAlignment="center"
@@ -29,7 +29,7 @@
         android:layout_marginBottom="8dp"
         android:layout_below="@id/date"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="@color/red"
         android:layout_centerHorizontal="true"
         android:text="@string/time"/>
 

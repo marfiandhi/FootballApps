@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 navigation_teams -> {
+                    deleteTeamsFragment()
                     tab_layout.gone()
                     view_pager.gone()
                     loadTeamsFragment(savedInstanceState)

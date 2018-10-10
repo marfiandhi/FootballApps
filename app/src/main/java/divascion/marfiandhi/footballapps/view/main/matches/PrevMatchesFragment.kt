@@ -5,10 +5,9 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.SearchView
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.google.gson.Gson
@@ -29,9 +28,10 @@ import org.jetbrains.anko.support.v4.onRefresh
 /**
  * Created by Marfiandhi on 10/6/2018.
  */
-class PrevMatchesFragment: Fragment(), MatchesView {
+class PrevMatchesFragment: Fragment(), MatchesView, SearchView.OnQueryTextListener {
 
     private var matches: MutableList<Schedule> = mutableListOf()
+    private var searchMatches: MutableList<Schedule> = ArrayList()
 
     private lateinit var presenter: MatchesPresenter
     private lateinit var adapter : MatchesAdapter
@@ -46,7 +46,10 @@ class PrevMatchesFragment: Fragment(), MatchesView {
 
         val spinnerItems = resources.getStringArray(R.array.league)
         val spinnerAdapter = ArrayAdapter(ctx, R.layout.my_spinner_dropdown_item, spinnerItems)
-        val popupBackground = ColorDrawable(Color.BLACK)
+        val popupBackground = ColorDrawable(Color.DKGRAY)
+
+        setHasOptionsMenu(true)
+
         matches_spinner_last.setPopupBackgroundDrawable(popupBackground)
         matches_spinner_last.adapter = spinnerAdapter
 
@@ -98,6 +101,36 @@ class PrevMatchesFragment: Fragment(), MatchesView {
         return inflater.inflate(R.layout.fragment_prev_matches, container, false)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.search, menu)
+        val searchItem = menu?.findItem(R.id.menu_search)
+        val searchView = searchItem?.actionView as SearchView
+        searchView.setOnQueryTextListener(this)
+        searchView.queryHint = "Search..."
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        matches.clear()
+        if(newText!!.isNotEmpty()) {
+            val search = newText.toLowerCase()
+            searchMatches.forEach{
+                if(it.home!!.toLowerCase().contains(search)|| it.away!!.toLowerCase().contains(search)) {
+                    matches.add(it)
+                }
+            }
+        } else {
+            matches.addAll(searchMatches)
+        }
+        adapter.notifyDataSetChanged()
+        return true
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return true
+    }
+
     override fun hideLoading() {
         last_progress_bar.invisible()
     }
@@ -107,6 +140,7 @@ class PrevMatchesFragment: Fragment(), MatchesView {
         matches.clear()
         matches.addAll(data)
         adapter.notifyDataSetChanged()
+        searchMatches.addAll(matches)
     }
 
     override fun showLoading() {

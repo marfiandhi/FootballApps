@@ -5,10 +5,9 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.SearchView
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.google.gson.Gson
@@ -25,13 +24,15 @@ import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.onRefresh
 
+
 @Suppress("DEPRECATION")
 /**
  * Created by Marfiandhi on 10/6/2018.
  */
-class NextMatchesFragment: Fragment(), MatchesView {
+class NextMatchesFragment: Fragment(), MatchesView, SearchView.OnQueryTextListener {
 
-    private var matches : MutableList<Schedule> = mutableListOf()
+    private var matches: MutableList<Schedule> = mutableListOf()
+    private var searchMatches: MutableList<Schedule> = ArrayList()
 
     private lateinit var presenter : MatchesPresenter
     private lateinit var adapter : MatchesAdapter
@@ -46,7 +47,10 @@ class NextMatchesFragment: Fragment(), MatchesView {
 
         val spinnerItems = resources.getStringArray(R.array.league)
         val spinnerAdapter = ArrayAdapter(ctx, R.layout.my_spinner_dropdown_item, spinnerItems)
-        val popupBackground = ColorDrawable(Color.BLACK)
+        val popupBackground = ColorDrawable(Color.DKGRAY)
+
+        setHasOptionsMenu(true)
+
         matches_spinner.setPopupBackgroundDrawable(popupBackground)
         matches_spinner.adapter = spinnerAdapter
 
@@ -95,6 +99,16 @@ class NextMatchesFragment: Fragment(), MatchesView {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.search, menu)
+        val searchItem = menu?.findItem(R.id.menu_search)
+        val searchView = searchItem?.actionView as SearchView
+        searchView.setOnQueryTextListener(this)
+        searchView.queryHint = "Search..."
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_next_matches, container, false)
     }
@@ -107,10 +121,31 @@ class NextMatchesFragment: Fragment(), MatchesView {
         next_swipe_refresh.isRefreshing = false
         matches.clear()
         matches.addAll(data)
+        searchMatches.addAll(matches)
         adapter.notifyDataSetChanged()
     }
 
     override fun showLoading() {
         next_progress_bar.visible()
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        matches.clear()
+        if(newText!!.isNotEmpty()) {
+            val search = newText.toLowerCase()
+            searchMatches.forEach{
+                if(it.home!!.toLowerCase().contains(search)|| it.away!!.toLowerCase().contains(search)) {
+                    matches.add(it)
+                }
+            }
+        } else {
+            matches.addAll(searchMatches)
+        }
+        adapter.notifyDataSetChanged()
+        return true
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return true
     }
 }
