@@ -21,12 +21,12 @@ import divascion.marfiandhi.footballapps.model.matches.Favorite
 import divascion.marfiandhi.footballapps.model.matches.Schedule
 import divascion.marfiandhi.footballapps.model.teams.Team
 import divascion.marfiandhi.footballapps.presenter.matches.MatchDetailsPresenter
+import divascion.marfiandhi.footballapps.utils.snackBarShow
 import kotlinx.android.synthetic.main.details_match.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
-import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.support.v4.onRefresh
 import java.text.SimpleDateFormat
 import java.util.*
@@ -291,9 +291,9 @@ class MatchDetailsActivity: AppCompatActivity(), MatchDetailsView {
                             Favorite.TIME to itemCacheFavorite.strTime.toString())
                 }
             }
-            snackbar(swipeRefresh, "Added to favorite").show()
+            snackBarShow(swipeRefresh, "Added to favorite")
         } catch (e: SQLiteConstraintException){
-            snackbar(swipeRefresh, e.localizedMessage).show()
+            snackBarShow(swipeRefresh, e.localizedMessage)
         }
     }
 
@@ -303,9 +303,9 @@ class MatchDetailsActivity: AppCompatActivity(), MatchDetailsView {
                 delete(Favorite.TABLE_FAVORITE, "(EVENT_ID = {id})",
                         "id" to eventId)
             }
-            snackbar(swipeRefresh, "Removed from favorite").show()
+            snackBarShow(swipeRefresh, "Removed from favorite")
         } catch (e: SQLiteConstraintException){
-            snackbar(swipeRefresh, e.localizedMessage).show()
+            snackBarShow(swipeRefresh, e.localizedMessage)
         }
     }
 

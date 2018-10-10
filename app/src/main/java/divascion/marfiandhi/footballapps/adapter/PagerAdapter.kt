@@ -1,5 +1,6 @@
-package divascion.marfiandhi.footballapps.adapter.matches
+package divascion.marfiandhi.footballapps.adapter
 
+import android.os.Bundle
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -7,7 +8,7 @@ import android.support.v4.app.FragmentStatePagerAdapter
 /**
  * Created by Marfiandhi on 10/6/2018.
  */
-class MatchesPagerAdapter(fragmentManager: FragmentManager)
+class PagerAdapter(fragmentManager: FragmentManager)
     : FragmentStatePagerAdapter(fragmentManager) {
 
     private val fragments = ArrayList<Fragment>()
@@ -19,8 +20,11 @@ class MatchesPagerAdapter(fragmentManager: FragmentManager)
 
     override fun getPageTitle(position: Int): CharSequence? = titles[position]
 
-    fun addFragment(fragment: Fragment, title: String) {
+    fun addFragment(fragment: Fragment, title: String, key: String, value: String) {
         fragments.add(fragment)
+        val bundle =  Bundle()
+        bundle.putString(key, value)
+        fragment.arguments = bundle
         titles.add(title)
     }
 }

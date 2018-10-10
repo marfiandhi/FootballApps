@@ -3,10 +3,10 @@ package divascion.marfiandhi.footballapps.view.details.teams
 import divascion.marfiandhi.footballapps.model.teams.Team
 
 /**
- * Created by Marfiandhi on 10/6/2018.
+ * Created by Marfiandhi on 10/10/2018.
  */
-interface TeamDetailView {
+interface TeamDescriptionView {
     fun showLoading()
     fun hideLoading()
-    fun showTeamDetail(data: List<Team>)
+    fun showTeamDescription(data: List<Team>)
 }

@@ -1,100 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.SwipeRefreshLayout
     android:id="@+id/player_swipe_refresh"
-    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ultraDarkGrey">
+    android:background="@color/ultraDarkGrey"
+    android:theme="@style/AppTheme.DarkActionBar">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/player_thumbnail"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:cropToPadding="true"
-            android:contentDescription="@string/player_fanart" />
-
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/weight"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <ImageView
+                android:id="@+id/player_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/black"
+                android:contentDescription="@string/player_fanart" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/weight"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weight_kg"
+                    android:textColor="@color/lightGrey"
+                    android:textAlignment="center"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/height"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/height_m"
+                    android:textColor="@color/lightGrey"
+                    android:textAlignment="center"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/weight_kg"
+                android:layout_marginVertical="12dp">
+
+                <TextView
+                    android:id="@+id/weight_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weight_example"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="40sp"/>
+
+                <TextView
+                    android:id="@+id/height_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/height_example"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="40sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/player_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/forward"
                 android:textColor="@color/lightGrey"
                 android:textAlignment="center"
                 android:textSize="18sp"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_marginBottom="8dp"/>
+
             <TextView
-                android:id="@+id/height"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:id="@+id/player_description"
+                android:layout_marginHorizontal="8dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/height_m"
-                android:textColor="@color/lightGrey"
-                android:textAlignment="center"
-                android:textSize="18sp"/>
+                android:textColor="@color/lightGrey"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp">
-
-            <TextView
-                android:id="@+id/weight_value"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/weight_example"
-                android:textColor="@color/white"
-                android:textAlignment="center"
-                android:textSize="40sp"/>
-
-            <TextView
-                android:id="@+id/height_value"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/height_example"
-                android:textColor="@color/white"
-                android:textAlignment="center"
-                android:textSize="40sp"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/forward"
-            android:textColor="@color/lightGrey"
-            android:textAlignment="center"
-            android:textSize="18sp"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorAccent"
-            android:layout_marginBottom="8dp"/>
-
-        <TextView
-            android:id="@+id/player_description"
-            android:layout_marginHorizontal="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/lightGrey"/>
-
-    </LinearLayout>
+    </ScrollView>
 
 </android.support.v4.widget.SwipeRefreshLayout>

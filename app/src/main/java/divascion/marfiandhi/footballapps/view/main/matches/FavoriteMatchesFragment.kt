@@ -63,7 +63,6 @@ class FavoriteMatchesFragment: Fragment(), MatchesView {
     }
 
     override fun showSchedule(data: List<Schedule>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showLoading() {
@@ -76,6 +75,13 @@ class FavoriteMatchesFragment: Fragment(), MatchesView {
             val result = select(Favorite.TABLE_FAVORITE)
             val favorite = result.parseList(classParser<Favorite>())
             favorites.addAll(favorite)
+            if(favorites.isEmpty()) {
+                matches_no_favorite.visibility = View.VISIBLE
+                recycler_favorite.visibility = View.GONE
+            } else {
+                matches_no_favorite.visibility = View.GONE
+                recycler_favorite.visibility = View.VISIBLE
+            }
             adapterFavorite.notifyDataSetChanged()
         }
     }

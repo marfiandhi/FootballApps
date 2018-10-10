@@ -4,4 +4,6 @@
     <item name="team_name" type="id" />
     <item name="spinner" type="id" />
     <item name="list_team" type="id" />
+    <item name="recycler_favorite_team" type="id" />
+    <item name="no_favorite_team" type="id" />
 </resources>

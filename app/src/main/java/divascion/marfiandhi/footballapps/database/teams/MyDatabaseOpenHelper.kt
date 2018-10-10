@@ -27,7 +27,9 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
                 Favorite.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
                 Favorite.TEAM_ID to TEXT + UNIQUE,
                 Favorite.TEAM_NAME to TEXT,
-                Favorite.TEAM_BADGE to TEXT)
+                Favorite.TEAM_BADGE to TEXT,
+                Favorite.TEAM_FORMED_YEAR to TEXT,
+                Favorite.TEAM_STADIUM to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

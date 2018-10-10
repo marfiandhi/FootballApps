@@ -1,12 +1,15 @@
 package divascion.marfiandhi.footballapps.view.main
 
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.RecyclerView
+import android.util.Log
 import divascion.marfiandhi.footballapps.R
 import divascion.marfiandhi.footballapps.R.id.*
-import divascion.marfiandhi.footballapps.adapter.matches.MatchesPagerAdapter
+import divascion.marfiandhi.footballapps.adapter.PagerAdapter
 import divascion.marfiandhi.footballapps.utils.gone
 import divascion.marfiandhi.footballapps.utils.visible
 import divascion.marfiandhi.footballapps.view.main.matches.FavoriteMatchesFragment
@@ -15,7 +18,9 @@ import divascion.marfiandhi.footballapps.view.main.matches.PrevMatchesFragment
 import divascion.marfiandhi.footballapps.view.main.team.FavoriteTeamsFragment
 import divascion.marfiandhi.footballapps.view.main.team.TeamsFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.ArrayList
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +29,41 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
+        tab_layout.setupWithViewPager(view_pager)
+
+        tab_layout.setOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            private val mSelectedListeners = ArrayList<TabLayout.OnTabSelectedListener>()
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                view_pager.setCurrentItem(tab.position, true)
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                for (i in mSelectedListeners.indices.reversed()) {
+                    mSelectedListeners[i].onTabUnselected(tab)
+                }
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab) {
+                try {
+                    val recyclerNext: RecyclerView = findViewById(recycler_next)
+                    val recyclerLast: RecyclerView = findViewById(recycler_last)
+                    recyclerNext.smoothScrollToPosition(0)
+                    recyclerLast.smoothScrollToPosition(0)
+                } catch(f: Exception) {
+                    Log.e("Tab Reselected", f.toString())
+                }
+                try {
+                    val recyclerFavoriteMatch: RecyclerView = findViewById(recycler_favorite)
+                    val recyclerFavoriteTeam: RecyclerView = findViewById(recycler_favorite_team)
+
+                    recyclerFavoriteMatch.smoothScrollToPosition(0)
+                    recyclerFavoriteTeam.smoothScrollToPosition(0)
+                } catch(e: Exception) {
+                    Log.e("Tab Reselected", e.toString())
+                }
+            }
+        })
+
         navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 navigation_matches -> {
@@ -31,7 +71,6 @@ class MainActivity : AppCompatActivity() {
                     tab_layout.visible()
                     view_pager.visible()
                     setupViewPager(view_pager, "Next","Last", NextMatchesFragment(), PrevMatchesFragment())
-                    tab_layout.setupWithViewPager(view_pager)
                     return@setOnNavigationItemSelectedListener true
                 }
                 navigation_teams -> {
@@ -45,7 +84,6 @@ class MainActivity : AppCompatActivity() {
                     tab_layout.visible()
                     view_pager.visible()
                     setupViewPager(view_pager, "Matches","Teams", FavoriteMatchesFragment(), FavoriteTeamsFragment())
-                    tab_layout.setupWithViewPager(view_pager)
                     return@setOnNavigationItemSelectedListener true
                 }
             }
@@ -55,11 +93,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViewPager(pager: ViewPager?, firstTitle: String, secondTitle: String, firstFragment: Fragment, secondFragment: Fragment) {
-        val adapter = MatchesPagerAdapter(supportFragmentManager)
+        val adapter = PagerAdapter(supportFragmentManager)
 
-        adapter.addFragment(firstFragment, firstTitle)
+        adapter.addFragment(firstFragment, firstTitle,"","")
 
-        adapter.addFragment(secondFragment, secondTitle)
+        adapter.addFragment(secondFragment, secondTitle,"","")
 
         pager?.adapter = adapter
     }

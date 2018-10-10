@@ -22,10 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.details.teams.TeamDetailActivity"
-            android:theme="@style/AppTheme.DarkActionBar"/>
-        <activity android:name=".view.details.matches.MatchDetailsActivity"
-            android:theme="@style/AppTheme.DarkActionBar"/>
+        <activity
+            android:name=".view.details.matches.MatchDetailsActivity"
+            android:theme="@style/AppTheme.DarkActionBar" />
+        <activity
+            android:name=".view.details.players.PlayerDetailsActivity"
+            android:theme="@style/AppTheme.DarkActionBar" />
+        <activity
+            android:name=".view.details.teams.TeamDetailsMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

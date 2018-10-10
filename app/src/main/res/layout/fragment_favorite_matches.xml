@@ -29,6 +29,16 @@
                 android:layout_centerHorizontal="true"
                 android:indeterminateTint="@color/colorAccent"/>
 
+            <TextView
+                android:id="@+id/matches_no_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="22sp"
+                android:textColor="@color/lightGrey"
+                android:text="@string/no_favorite"/>
+
         </RelativeLayout>
 
     </android.support.v4.widget.SwipeRefreshLayout>

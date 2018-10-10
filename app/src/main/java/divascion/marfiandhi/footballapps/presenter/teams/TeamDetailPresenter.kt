@@ -4,14 +4,14 @@ import com.google.gson.Gson
 import divascion.marfiandhi.footballapps.model.ApiRepository
 import divascion.marfiandhi.footballapps.model.TheSportDBApi
 import divascion.marfiandhi.footballapps.model.teams.TeamResponse
-import divascion.marfiandhi.footballapps.view.details.teams.TeamDetailView
+import divascion.marfiandhi.footballapps.view.details.teams.TeamDescriptionView
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
 /**
  * Created by Marfiandhi on 10/6/2018.
  */
-class TeamDetailPresenter(private val view: TeamDetailView,
+class TeamDetailPresenter(private val view: TeamDescriptionView,
                           private val apiRepository: ApiRepository,
                           private val gson: Gson) {
 
@@ -25,7 +25,7 @@ class TeamDetailPresenter(private val view: TeamDetailView,
 
             uiThread {
                 view.hideLoading()
-                view.showTeamDetail(data.teams)
+                view.showTeamDescription(data.teams)
             }
         }
     }
