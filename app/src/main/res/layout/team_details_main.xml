@@ -20,7 +20,7 @@
             android:fitsSystemWindows="true"
             app:titleEnabled="false"
             app:contentScrim="@color/black"
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed" >
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|exitUntilCollapsed" >
 
             <LinearLayout
                 android:orientation="vertical"
