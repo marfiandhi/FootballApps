@@ -129,6 +129,7 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView, SearchView.
 
     override fun showTeamList(data: List<Team>) {
         swipeRefresh.isRefreshing = false
+        searchTeams.clear()
         teams.clear()
         teams.addAll(data)
         searchTeams.addAll(teams)

@@ -137,6 +137,7 @@ class PrevMatchesFragment: Fragment(), MatchesView, SearchView.OnQueryTextListen
 
     override fun showSchedule(data: List<Schedule>) {
         last_swipe_refresh.isRefreshing = false
+        searchMatches.clear()
         matches.clear()
         matches.addAll(data)
         adapter.notifyDataSetChanged()

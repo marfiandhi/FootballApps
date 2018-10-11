@@ -119,6 +119,7 @@ class NextMatchesFragment: Fragment(), MatchesView, SearchView.OnQueryTextListen
 
     override fun showSchedule(data: List<Schedule>) {
         next_swipe_refresh.isRefreshing = false
+        searchMatches.clear()
         matches.clear()
         matches.addAll(data)
         searchMatches.addAll(matches)
@@ -130,8 +131,8 @@ class NextMatchesFragment: Fragment(), MatchesView, SearchView.OnQueryTextListen
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        matches.clear()
         if(newText!!.isNotEmpty()) {
+            matches.clear()
             val search = newText.toLowerCase()
             searchMatches.forEach{
                 if(it.home!!.toLowerCase().contains(search)|| it.away!!.toLowerCase().contains(search)) {
@@ -139,6 +140,7 @@ class NextMatchesFragment: Fragment(), MatchesView, SearchView.OnQueryTextListen
                 }
             }
         } else {
+            matches.clear()
             matches.addAll(searchMatches)
         }
         adapter.notifyDataSetChanged()
