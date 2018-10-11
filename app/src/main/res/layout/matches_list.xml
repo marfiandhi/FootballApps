@@ -2,14 +2,15 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginHorizontal="8dp"
-    android:paddingHorizontal="44dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:paddingStart="44dp"
+    android:paddingEnd="44dp"
     android:layout_marginTop="4dp"
     android:paddingBottom="12dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/rounded_black"
-    tools:targetApi="o">
+    android:background="@drawable/rounded_black">
 
     <TextView
         android:id="@+id/date"
@@ -21,6 +22,7 @@
         android:textSize="12sp"
         android:text="@string/example_date"
         android:textColor="@color/red"/>
+
     <TextView
         android:id="@+id/time"
         android:textAlignment="center"
